@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>GrubDash</title>
+    </head>
+    <body>
+        <nav>
+            <div>
+                <button type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i></i>
+                </button>
+                <div>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'order' %}">Orders</a></li>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% block bodyblock %}
+        {% endblock %}
+    </body>
+</html>

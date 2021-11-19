@@ -3,10 +3,13 @@ from django.shortcuts import render
 
 # Create your views here.
 def indexPageView(request) :
-    return HttpResponse("This is the home page")
+    return render(request, 'deliveryapp/index.html')
 
-def contactPageView(request) :
-    return HttpResponse("This is the page where users find contact information for the company")
+def aboutPageView(request) :
+    return render(request, 'deliveryapp/about.html')
 
 def orderPageView(request) :
-    return HttpResponse("This is where the user puts in their orders")
+    return render(request, 'deliveryapp/order.html')
+
+def cartPageView(request) :
+    return render(request, 'deliveryapp/cart.html')
