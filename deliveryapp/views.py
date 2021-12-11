@@ -34,8 +34,6 @@ def submitOrderPageView(request) :
 def newCartPageView(request) :
     newCart = Cart.objects.create()
 
-    
-
     newCartNum = newCart.id
 
     return redirect('cart', newCartNum)
@@ -48,3 +46,7 @@ def saveItemPageView(request) :
 
 def addItemPageView(request) :
     return redirect('cart')
+
+def findCart(request) :
+    cartid = Cart.objects.get(id=request.GET['inputCartNumber'])
+    return redirect('cart', cartid.id)

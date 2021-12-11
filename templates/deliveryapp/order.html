@@ -25,6 +25,17 @@
             <div class="tab-pane fade" id="findCart" role="tabpanel" aria-labelledby="findCart-tab">
                 <h1>Find a Cart</h1>
                 <br>
+                <form name="form" method="GET" action="{% url 'find-cart' %}">
+                    
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="inputCartNumber">Cart Number</label>
+                        <input type="text" class="form-control" id="inputCartNumber" placeholder="Cart Number" name="inputCartNumber">
+                      </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-outline-primary">Search</button>
+                </form>
                 
             </div>
             
