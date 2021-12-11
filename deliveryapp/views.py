@@ -1,5 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
+from deliveryapp.models import Cart
 
 # Create your views here.
 def indexPageView(request) :
@@ -11,7 +12,7 @@ def aboutPageView(request) :
 def orderPageView(request) :
     return render(request, 'deliveryapp/order.html')
 
-def cartPageView(request) :
+def cartPageView(request, cart_number) :
     return render(request, 'deliveryapp/cart.html')
 
 
@@ -31,7 +32,13 @@ def submitOrderPageView(request) :
 
 
 def newCartPageView(request) :
-    return redirect('cart', cart_number=x)
+    newCart = Cart.objects.create()
+
+    
+
+    newCartNum = newCart.id
+
+    return redirect('cart', newCartNum)
 
 def deleteItemPageView(request) :
     return redirect('cart')

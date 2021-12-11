@@ -40,7 +40,7 @@ class Cart(models.Model) :
     deliveryzip = models.CharField(max_length=10)
     
     cardnumber = models.CharField(max_length=16)
-    cardexpiration = models.DateField()
+    cardexpiration = models.DateField(null=True, blank=True)
     cardcvv = models.CharField(max_length=3)
 
     items = models.ManyToManyField('Item', through='CartItem')
