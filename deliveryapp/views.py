@@ -10,7 +10,10 @@ def aboutPageView(request) :
     return render(request, 'deliveryapp/about.html')
 
 def orderPageView(request) :
-    return render(request, 'deliveryapp/order.html')
+    context = {
+        "failure" : False
+    }
+    return render(request, 'deliveryapp/order.html', context)
 
 def cartPageView(request, cart_number) :
     context = {
@@ -53,5 +56,12 @@ def addItemPageView(request) :
     return redirect('cart')
 
 def findCart(request) :
-    cartid = Cart.objects.get(id=request.GET['inputCartNumber'])
-    return redirect('cart', cartid.id)
+    try :
+        cartid = Cart.objects.get(id=request.GET['inputCartNumber'])
+        return redirect('cart', cartid.id)
+    except:
+        context = {
+            "failure" : True,
+            "cartNum" : request.GET['inputCartNumber']
+        }
+        return render(request, 'deliveryapp/order.html', context)
