@@ -16,10 +16,17 @@ def orderPageView(request) :
     return render(request, 'deliveryapp/order.html', context)
 
 def cartPageView(request, cart_number) :
+    cart = Cart.objects.get(id=cart_number)
+    restaurants = set()
+    for item in cart.items.all() :
+      if item.restaurant not in restaurants :
+          restaurants.add(item.restaurant)
+    restaurants.add("Taco Bell")
+    restaurants.add("Del Taco")
     context = {
-        "cart" : Cart.objects.get(id=cart_number)
+        "cart" : cart,
+        "restaurants" : restaurants
     }
-
 
     return render(request, 'deliveryapp/cart.html', context)
 
