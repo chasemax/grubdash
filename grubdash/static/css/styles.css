@@ -1,0 +1,21 @@
+body {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px;
+}
+
+.content-style {
+    padding: 15px;
+}
+
+
+
+.btn-primary, .btn-primary:visited, .btn-primary:focus {
+    background-color: #DA291C !important;
+    border-color: #DA291C !important;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    background-color: #ce261a !important;
+    border-color: #ce261a !important;
+}

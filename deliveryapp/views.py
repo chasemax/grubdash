@@ -21,7 +21,7 @@ def cartPageView(request, cart_number) :
 def editItemPageView(request) :
     return render(request, 'deliveryapp/cart.html')
 
-def restaurantPageView(request) :
+def restaurantPageView(request, cart_number) :
     return render(request, 'deliveryapp/cart.html')
 
 def itemPageView(request) :
@@ -36,7 +36,7 @@ def newCartPageView(request) :
 
     newCartNum = newCart.id
 
-    return redirect('cart', newCartNum)
+    return redirect('restaurant', newCartNum)
 
 def deleteItemPageView(request) :
     return redirect('cart')
