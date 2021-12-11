@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% block bodyblock %}
-
-<h1>Welcome to GRUBDASH</h1>
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-lg-8 text-center">
+            <h1>Welcome to GrubDash!</h1>
+            <a class="btn btn-primary btn-lg" style="background-color:#DA291C;border-color:#DA291C !important" href="{% url 'order' %}" role="button">Order Now</a>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
 {% endblock %}
