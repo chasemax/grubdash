@@ -24,17 +24,17 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="firstname">First Name:</label><br>
-                        <input type="text" class="form-control" id="firstname" maxlength="20">
+                        <input type="text" class="form-control" id="firstname" maxlength="20" value="{{ cart.customerfirstname }}">
                     </div>
                     <div class="col">
                         <label for="lastname">Last Name:</label><br>
-                        <input type="text" class="form-control" id="lastname" maxlength="30">
+                        <input type="text" class="form-control" id="lastname" maxlength="30" value="{{ cart.customerlastname }}">
                     </div>
                 </div><br>
                 <div class="form-row">
                     <div class="col">
                         <label for="phone">Phone:</label><br>
-                        <input type="text" class="form-control" id="phone" maxlength="10">
+                        <input type="text" class="form-control" id="phone" maxlength="10" value="{{ cart.customerphone }}">
                     </div>
                     <div class="col">
                     </div>
@@ -44,27 +44,27 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="line1">Address Line 1:</label><br>
-                        <input type="text" class="form-control" id="line1" maxlength="20">
+                        <input type="text" class="form-control" id="line1" maxlength="20" value="{{ cart.deliveryaddressline1 }}">
                     </div>
                     <div class="col">
                         <label for="line2">Address Line 2:</label><br>
-                        <input type="text" class="form-control" id="line2" maxlength="30">
+                        <input type="text" class="form-control" id="line2" maxlength="30" value="{{ cart.deliveryaddressline2 }}">
                     </div>
                 </div><br>
                 <div class="form-row">
                     <div class="col">
                         <label for="city">City:</label><br>
-                        <input type="text" class="form-control" id="city" maxlength="10">
+                        <input type="text" class="form-control" id="city" maxlength="10" value="{{ cart.deliverycity }}">
                     </div>
                     <div class="col">
                         <label for="state">State:</label><br>
-                        <input type="text" class="form-control" id="state" maxlength="10">
+                        <input type="text" class="form-control" id="state" maxlength="10" value="{{ cart.deliverystate }}">
                     </div>
                 </div><br>
                 <div class="form-row">
                     <div class="col">
                         <label for="zip">Zip:</label><br>
-                        <input type="text" class="form-control" id="zip" maxlength="10">
+                        <input type="text" class="form-control" id="zip" maxlength="10" value="{{ cart.deliveryzip }}">
                     </div>
                     <div class="col">
                     </div>
@@ -81,8 +81,16 @@
                 </div><br>
                 <div class="form-row">
                     <div class="col">
-                        <label for="expiration">Expiration:</label><br>
-                        <input type="text" class="form-control" id="expiration" maxlength="10">
+                        <div class="row">
+                            <div class="col">
+                                <label for="month">Expiration:</label><br>
+                                <input type="text" class="form-control" id="month" maxlength="10">
+                            </div>
+                            <div class="col">
+                                <label for="year" style="color:white">Expiration:</label><br>
+                                <input type="text" class="form-control" id="year" maxlength="10">
+                            </div>
+                        </div>
                     </div>
                     <div class="col">
                     </div>
