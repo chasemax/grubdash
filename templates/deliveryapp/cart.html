@@ -1,21 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block bodyblock %}
-
-<h1>Your cart</h1>
-
-<div><p>Cart item 1</p></div>
-<div><p>Cart item 2</p></div>
-<div><p>Cart item 3</p></div>
-
-<h2>Payment Details</h2>
-
-<form>
-    <label>First Name</label>
-    <input type="text">
-    <p>More details will be added here later</p>
-</form>
-
+<h1>Your Cart</h1><br>
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
@@ -33,7 +19,11 @@
             </table>
         </div>
         <div class="col-lg-6">
-            <h2>Payment Info</h2>
+            <form>
+                <h2>Customer Info</h2>
+                    <label for="firstname">
+                    <input type="text" id="firstname">
+            </form>
         </div>
     </div>
 </div>
