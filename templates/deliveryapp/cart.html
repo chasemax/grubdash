@@ -4,7 +4,7 @@
 <h1>Your Cart</h1><br>
 <div class="container">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="padding-top:5px">
             <h2>Order Details</h2>
             <table class="table">
                 <tr>
@@ -18,12 +18,87 @@
                 <!--DTL for loop to display cart info-->
             </table>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 border" style="padding-top:5px">
             <form>
                 <h2>Customer Info</h2>
-                    <label for="firstname">
-                    <input type="text" id="firstname">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="firstname">First Name:</label><br>
+                        <input type="text" class="form-control" id="firstname" maxlength="20">
+                    </div>
+                    <div class="col">
+                        <label for="lastname">Last Name:</label><br>
+                        <input type="text" class="form-control" id="lastname" maxlength="30">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="phone">Phone:</label><br>
+                        <input type="text" class="form-control" id="phone" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+                <br>
+                <h2>Delivery Info</h2>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="line1">Address Line 1:</label><br>
+                        <input type="text" class="form-control" id="line1" maxlength="20">
+                    </div>
+                    <div class="col">
+                        <label for="line2">Address Line 2:</label><br>
+                        <input type="text" class="form-control" id="line2" maxlength="30">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="city">City:</label><br>
+                        <input type="text" class="form-control" id="city" maxlength="10">
+                    </div>
+                    <div class="col">
+                        <label for="state">State:</label><br>
+                        <input type="text" class="form-control" id="state" maxlength="10">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="zip">Zip:</label><br>
+                        <input type="text" class="form-control" id="zip" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+                <br>
+                <h2>Payment Info</h2>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="cardnumber">Card Number:</label><br>
+                        <input type="text" class="form-control" id="cardnumber" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="expiration">Expiration:</label><br>
+                        <input type="text" class="form-control" id="expiration" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="cvv">CVV:</label><br>
+                        <input type="text" class="form-control" id="cvv" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-danger">Place Order</button>
             </form>
+            <br>
         </div>
     </div>
 </div>
