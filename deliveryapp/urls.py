@@ -11,8 +11,8 @@ urlpatterns = [
     path("deleteitem/", deleteItemPageView, name="delete-item"),
     path("edititem/<int:cart_item_id>/", editItemPageView, name="cart"),
     path("saveitem/", saveItemPageView, name="save-item"),
-    path("restaurant/<int:cart_number>/", restaurantPageView, name="restaurant"),
-    path("item/<int:cart_number>/<int:restaurant_id>/", itemPageView, name="item"),
-    path("additem/", addItemPageView, name="add-item"),
+    path("restaurant/<int:cart_number>/", restaurantPageView, name="restaurant"),   # Chase will do
+    path("item/<int:cart_number>/<int:restaurant_id>/", itemPageView, name="item"), # Chase will do
+    path("additem/", addItemPageView, name="add-item"),                             # Chase will do
     path("submitorder/", submitOrderPageView, name="submit-order"),
 ]
