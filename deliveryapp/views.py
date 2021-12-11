@@ -13,7 +13,12 @@ def orderPageView(request) :
     return render(request, 'deliveryapp/order.html')
 
 def cartPageView(request, cart_number) :
-    return render(request, 'deliveryapp/cart.html')
+    context = {
+        "cart" : Cart.objects.get(id=cart_number)
+    }
+
+
+    return render(request, 'deliveryapp/cart.html', context)
 
 
 
