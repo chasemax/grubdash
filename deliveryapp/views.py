@@ -10,10 +10,25 @@ def aboutPageView(request) :
     return render(request, 'deliveryapp/about.html')
 
 def orderPageView(request) :
-    return render(request, 'deliveryapp/order.html')
+    context = {
+        "failure" : False
+    }
+    return render(request, 'deliveryapp/order.html', context)
 
 def cartPageView(request, cart_number) :
-    return render(request, 'deliveryapp/cart.html')
+    cart = Cart.objects.get(id=cart_number)
+    restaurants = set()
+    for item in cart.items.all() :
+      if item.restaurant not in restaurants :
+          restaurants.add(item.restaurant)
+    restaurants.add("Taco Bell")
+    restaurants.add("Del Taco")
+    context = {
+        "cart" : cart,
+        "restaurants" : restaurants
+    }
+
+    return render(request, 'deliveryapp/cart.html', context)
 
 
 
@@ -21,7 +36,7 @@ def cartPageView(request, cart_number) :
 def editItemPageView(request) :
     return render(request, 'deliveryapp/cart.html')
 
-def restaurantPageView(request) :
+def restaurantPageView(request, cart_number) :
     return render(request, 'deliveryapp/cart.html')
 
 def itemPageView(request) :
@@ -36,7 +51,7 @@ def newCartPageView(request) :
 
     newCartNum = newCart.id
 
-    return redirect('cart', newCartNum)
+    return redirect('restaurant', newCartNum)
 
 def deleteItemPageView(request) :
     return redirect('cart')
@@ -48,5 +63,12 @@ def addItemPageView(request) :
     return redirect('cart')
 
 def findCart(request) :
-    cartid = Cart.objects.get(id=request.GET['inputCartNumber'])
-    return redirect('cart', cartid.id)
+    try :
+        cartid = Cart.objects.get(id=request.GET['inputCartNumber'])
+        return redirect('cart', cartid.id)
+    except:
+        context = {
+            "failure" : True,
+            "cartNum" : request.GET['inputCartNumber']
+        }
+        return render(request, 'deliveryapp/order.html', context)

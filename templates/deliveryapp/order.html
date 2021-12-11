@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block bodyblock %}
 
-<h1> Order HERE! </h1>
+{% if failure == True %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Could not find cart #{{cartNum}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
 
 <div class="card ">
     <div class="card-header"> 
@@ -19,8 +27,9 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="newOrder" role="tabpanel" aria-labelledby="newOrder-tab">
                 <h1>Create a New Order</h1>
+                <br>
                 
-                <a class="btn btn-danger " href="{% url 'newcart' %}" role="button">New Order +</a>
+                <a class="btn btn-primary " href="{% url 'newcart' %}" role="button">New Order +</a>
             </div>
             <div class="tab-pane fade" id="findCart" role="tabpanel" aria-labelledby="findCart-tab">
                 <h1>Find a Cart</h1>
@@ -30,7 +39,7 @@
                     <div class="form-row">
                       <div class="form-group col-md-4">
                         <label for="inputCartNumber">Cart Number</label>
-                        <input type="text" class="form-control" id="inputCartNumber" placeholder="Cart Number" name="inputCartNumber">
+                        <input type="text" class="form-control" id="inputCartNumber" placeholder="Cart Number" name="inputCartNumber" required>
                       </div>
                     </div>
                     
@@ -43,14 +52,5 @@
     </div>
 </div>
 
-
-
-<button type="button">New Customer</button>
-<div>
-    <button type="button">Returning Customer</button>
-    <br>
-    <label>Cart ID:</label>
-    <input type="text">
-</div>
 
 {% endblock %}

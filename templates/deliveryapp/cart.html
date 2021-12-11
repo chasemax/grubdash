@@ -1,18 +1,109 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block bodyblock %}
-
-<h1>Your cart</h1>
-
-<div><p>Cart item 1</p></div>
-<div><p>Cart item 2</p></div>
-<div><p>Cart item 3</p></div>
-
-<h2>Payment Details</h2>
-
-<form>
-    <label>First Name</label>
-    <input type="text">
-    <p>More details will be added here later</p>
-</form>
-
+<h1>Your Cart</h1><br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6" style="padding-top:5px">
+            <h2>Order Details</h2>
+            {% for restaurant in restaurants %}
+            <h3>{{restaurant}}</h3>
+            
+            <table class="table">
+                <tr>
+                    
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>&nbsp&nbsp&nbsp&nbsp</th>
+                    <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                </tr>
+                <!--DTL for loop to display cart info-->
+            </table>
+            {% endfor %}
+        </div>
+        <div class="col-lg-6 border" style="padding-top:5px">
+            <form>
+                <h2>Customer Info</h2>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="firstname">First Name:</label><br>
+                        <input type="text" class="form-control" id="firstname" maxlength="20">
+                    </div>
+                    <div class="col">
+                        <label for="lastname">Last Name:</label><br>
+                        <input type="text" class="form-control" id="lastname" maxlength="30">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="phone">Phone:</label><br>
+                        <input type="text" class="form-control" id="phone" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+                <br>
+                <h2>Delivery Info</h2>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="line1">Address Line 1:</label><br>
+                        <input type="text" class="form-control" id="line1" maxlength="20">
+                    </div>
+                    <div class="col">
+                        <label for="line2">Address Line 2:</label><br>
+                        <input type="text" class="form-control" id="line2" maxlength="30">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="city">City:</label><br>
+                        <input type="text" class="form-control" id="city" maxlength="10">
+                    </div>
+                    <div class="col">
+                        <label for="state">State:</label><br>
+                        <input type="text" class="form-control" id="state" maxlength="10">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="zip">Zip:</label><br>
+                        <input type="text" class="form-control" id="zip" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+                <br>
+                <h2>Payment Info</h2>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="cardnumber">Card Number:</label><br>
+                        <input type="text" class="form-control" id="cardnumber" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="expiration">Expiration:</label><br>
+                        <input type="text" class="form-control" id="expiration" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="cvv">CVV:</label><br>
+                        <input type="text" class="form-control" id="cvv" maxlength="10">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Place Order</button>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
 {% endblock %}

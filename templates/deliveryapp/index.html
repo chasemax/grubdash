@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block bodyblock %}
 <div class="container" style="margin:auto;width:100%;padding:20%">
     <div class="row">
@@ -6,7 +7,8 @@
         </div>
         <div class="col-lg-8 text-center">
             <h1>Welcome to GrubDash!</h1>
-            <a class="btn btn-primary btn-lg" style="background-color:#DA291C;border-color:#DA291C !important" href="{% url 'order' %}" role="button">Order Now</a>
+            <br>
+            <a class="btn btn-primary btn-lg" href="{% url 'order' %}" role="button">Order Now</a>
         </div>
         <div class="col-lg-2">
         </div>
