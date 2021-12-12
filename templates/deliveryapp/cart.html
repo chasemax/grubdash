@@ -10,15 +10,21 @@
             <h3>{{restaurant}}</h3>
             
             <table class="table">
-                <tr>
+                <thead>
+                    <tr>
                     
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>&nbsp&nbsp&nbsp&nbsp</th>
-                    <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
-                </tr>
-                <!--DTL for loop to display cart info-->
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>&nbsp&nbsp&nbsp&nbsp</th>
+                        <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in restaurant.items %}
+                        <td>{{item}}<td>
+                    {% endfor %}
+                </tbody>
             </table>
             {% endfor %}
         </div>
