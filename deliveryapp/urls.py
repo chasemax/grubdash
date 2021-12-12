@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import aboutPageView, cartPageView, indexPageView, orderPageView, editItemPageView, restaurantPageView,itemPageView
-from .views import submitOrderPageView, newCartPageView, deleteItemPageView, saveItemPageView, addItemPageView, findCart
+from .views import orderSummaryPageView, newCartPageView, deleteItemPageView, saveItemPageView, addItemPageView, findCart
 
 urlpatterns = [
     path("", indexPageView, name='index'),
@@ -14,6 +14,6 @@ urlpatterns = [
     path("restaurant/<int:cart_number>/", restaurantPageView, name="restaurant"),   # Chase will do
     path("item/<int:cart_number>/<int:restaurant_id>/", itemPageView, name="item"), # Chase will do
     path("additem/", addItemPageView, name="add-item"),                             # Chase will do
-    path("submitorder/", submitOrderPageView, name="submit-order"),
+    path("ordersummary/", orderSummaryPageView, name="order-summary"),
     path("findcart/", findCart, name="find-cart")
 ]
