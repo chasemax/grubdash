@@ -29,22 +29,22 @@
             {% endfor %}
         </div>
         <div class="col-lg-6 border" style="padding-top:5px">
-            <form>
+            <form method="POST" action="{% url 'submit-order' %}">
                 <h2>Customer Info</h2>
                 <div class="form-row">
                     <div class="col">
                         <label for="firstname">First Name:</label><br>
-                        <input type="text" class="form-control" id="firstname" maxlength="20">
+                        <input type="text" class="form-control" id="firstname" maxlength="20" value="{{ cart.customerfirstname }}" placeholder="e.g., John">
                     </div>
                     <div class="col">
                         <label for="lastname">Last Name:</label><br>
-                        <input type="text" class="form-control" id="lastname" maxlength="30">
+                        <input type="text" class="form-control" id="lastname" maxlength="30" value="{{ cart.customerlastname }}" placeholder="e.g., Doe">
                     </div>
                 </div><br>
                 <div class="form-row">
                     <div class="col">
                         <label for="phone">Phone:</label><br>
-                        <input type="text" class="form-control" id="phone" maxlength="10">
+                        <input type="text" class="form-control" id="phone" maxlength="10" value="{{ cart.customerphone }}" placeholder="e.g., 1238904567">
                     </div>
                     <div class="col">
                     </div>
@@ -54,27 +54,27 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="line1">Address Line 1:</label><br>
-                        <input type="text" class="form-control" id="line1" maxlength="20">
+                        <input type="text" class="form-control" id="line1" maxlength="20" value="{{ cart.deliveryaddressline1 }}" placeholder="Address Line 1">
                     </div>
                     <div class="col">
                         <label for="line2">Address Line 2:</label><br>
-                        <input type="text" class="form-control" id="line2" maxlength="30">
+                        <input type="text" class="form-control" id="line2" maxlength="30" value="{{ cart.deliveryaddressline2 }}" placeholder="Address Line 2">
                     </div>
                 </div><br>
                 <div class="form-row">
                     <div class="col">
                         <label for="city">City:</label><br>
-                        <input type="text" class="form-control" id="city" maxlength="10">
+                        <input type="text" class="form-control" id="city" maxlength="10" value="{{ cart.deliverycity }}"placeholder="e.g., Los Angeles">
                     </div>
                     <div class="col">
                         <label for="state">State:</label><br>
-                        <input type="text" class="form-control" id="state" maxlength="10">
+                        <input type="text" class="form-control" id="state" maxlength="10" value="{{ cart.deliverystate }}" placeholder="e.g., CA">
                     </div>
                 </div><br>
                 <div class="form-row">
                     <div class="col">
                         <label for="zip">Zip:</label><br>
-                        <input type="text" class="form-control" id="zip" maxlength="10">
+                        <input type="text" class="form-control" id="zip" maxlength="10" value="{{ cart.deliveryzip }}" placeholder="e.g., 90001">
                     </div>
                     <div class="col">
                     </div>
@@ -84,15 +84,23 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="cardnumber">Card Number:</label><br>
-                        <input type="text" class="form-control" id="cardnumber" maxlength="10">
+                        <input type="text" class="form-control" id="cardnumber" maxlength="10" placeholder="e.g., 1234123412341234">
                     </div>
                     <div class="col">
                     </div>
                 </div><br>
                 <div class="form-row">
                     <div class="col">
-                        <label for="expiration">Expiration:</label><br>
-                        <input type="text" class="form-control" id="expiration" maxlength="10">
+                        <div class="row">
+                            <div class="col">
+                                <label for="month">Expiration:</label><br>
+                                <input type="text" class="form-control" id="month" maxlength="10" placeholder="Month">
+                            </div>
+                            <div class="col">
+                                <label for="year" style="color:white">Expiration:</label><br>
+                                <input type="text" class="form-control" id="year" maxlength="10" placeholder="Year">
+                            </div>
+                        </div>
                     </div>
                     <div class="col">
                     </div>
@@ -100,7 +108,7 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="cvv">CVV:</label><br>
-                        <input type="text" class="form-control" id="cvv" maxlength="10">
+                        <input type="text" class="form-control" id="cvv" maxlength="10" placeholder="e.g., 000">
                     </div>
                     <div class="col">
                     </div>
