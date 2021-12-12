@@ -14,6 +14,6 @@ urlpatterns = [
     path("restaurant/<int:cart_number>/", restaurantPageView, name="restaurant"),   # Chase will do
     path("item/<int:cart_number>/<int:restaurant_id>/", itemPageView, name="item"), # Chase will do
     path("additem/", addItemPageView, name="add-item"),                             # Chase will do
-    path("ordersummary/", orderSummaryPageView, name="order-summary"),
+    path("ordersummary/<int:cart_number>/", orderSummaryPageView, name="ordersummary"),
     path("findcart/", findCart, name="find-cart")
 ]

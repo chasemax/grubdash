@@ -40,8 +40,28 @@ def restaurantPageView(request, cart_number) :
 def itemPageView(request) :
     return render(request, 'deliveryapp/cart.html')
 
-def orderSummaryPageView(request) :
-    return render(request, 'deliveryapp/ordersummary.html')
+def orderSummaryPageView(request, cart_number) :
+    if request.method == 'POST' :
+        cart = Cart.objects.get(id=cart_number)
+        month = request.POST['month']
+        year = request.POST['year']
+        expiration = ('20' + str(year) + '-' + str(month) + '-01')
+
+        cart.customerfirstname = request.POST['customerfirstname']
+        cart.customerlastname = request.POST['customerlastname']
+        cart.customerphone = request.POST['customerphone']
+        cart.deliveryaddressline1 = request.POST['deliveryaddressline1']
+        cart.deliveryaddressline2 = request.POST['deliveryaddressline2']
+        cart.deliverycity = request.POST['deliverycity']
+        cart.deliverystate = request.POST['deliverystate']
+        cart.deliveryzip = request.POST['deliveryzip']
+        cart.cardnumber = request.POST['cardnumber']
+        cart.cardexpiration = expiration
+        cart.cardcvv = request.POST['cardcvv']
+
+        cart.save()
+
+        return render(request, 'deliveryapp/ordersummary.html')
 
 
 def newCartPageView(request) :
