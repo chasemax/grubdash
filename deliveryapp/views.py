@@ -17,21 +17,19 @@ def orderPageView(request) :
 
 def cartPageView(request, cart_number) :
     cart = Cart.objects.get(id=cart_number)
-    restaurants = set()
+    restaurants = {}
     for item in cart.items.all() :
-      if item.restaurant not in restaurants :
-          restaurants.add(item.restaurant)
-    restaurants.add("Taco Bell")
-    restaurants.add("Del Taco")
+        if item.restaurant not in restaurants :
+            restaurants[item.restaurant] = {item}
+        else :
+            restaurants[item.restaurant].add(item)
+    
     context = {
         "cart" : cart,
         "restaurants" : restaurants
     }
 
     return render(request, 'deliveryapp/cart.html', context)
-
-
-
 
 def editItemPageView(request) :
     return render(request, 'deliveryapp/cart.html')
