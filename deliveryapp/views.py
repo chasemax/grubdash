@@ -19,14 +19,18 @@ def cartPageView(request, cart_number) :
     cart = Cart.objects.get(id=cart_number)
     restaurants = {}
     for item in cart.items.all() :
+        print(item.restaurant)
         if item.restaurant not in restaurants :
             restaurants[item.restaurant] = {item}
         else :
             restaurants[item.restaurant].add(item)
     
+    items = cart.items.all()
+
     context = {
         "cart" : cart,
-        "restaurants" : restaurants
+        "restaurants" : restaurants,
+        "items" : items
     }
 
     return render(request, 'deliveryapp/cart.html', context)

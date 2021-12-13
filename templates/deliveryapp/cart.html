@@ -21,14 +21,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for item in restaurant.items %}
-                        <tr>
-                            <td>{{item.name}}<td>
-                            <td><td>
-                            <td><td>
-                            <td>Edit<td>
-                            <td>Delete<td>
-                        </tr>
+                    {% for item in items %}
+                        {% if item.restaurant == restaurant %}
+                            <tr>
+                                <td>{{item}}<td>
+                                <td><td>
+                                <td><td>
+                                <td>Edit<td>
+                                <td>Delete<td>
+                            </tr>
+                        {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
