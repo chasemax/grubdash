@@ -40,13 +40,6 @@ def restaurantPageView(request, cart_number) :
 def itemPageView(request) :
     return render(request, 'deliveryapp/cart.html')
 
-<<<<<<< HEAD
-def orderSummaryPageView(request) :
-    
-    
-   
-    return render(request, 'deliveryapp/ordersummary.html')
-=======
 def orderSummaryPageView(request, cart_number) :
     if request.method == 'POST' :
         cart = Cart.objects.get(id=cart_number)
@@ -69,7 +62,6 @@ def orderSummaryPageView(request, cart_number) :
         cart.save()
 
         return render(request, 'deliveryapp/ordersummary.html')
->>>>>>> master
 
 
 def newCartPageView(request) :
