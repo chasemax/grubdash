@@ -6,35 +6,37 @@
     <div class="row">
         <div class="col-lg-6" style="padding-top:5px">
             <h2>Order Details</h2>
+            <hr>
             {% for restaurant in restaurants %}
             <h3>{{restaurant}}</h3>
+
+                <table class="table ">
+                    <thead>
+                        <tr>
+                        
+                            <td scope="col">Item</th>
+                            <td scope="col">Quantity</th>
+                            <td scope="col">Price</th>
+                            <td scope="col"></th>
+                            <td scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                            {% if item.item.restaurant == restaurant %}
+                                <tr>
+                                    <th scope="row">{{item.item}}</th>
+                                    <td>{{item.quantity}}</td>
+                                    <td>{{item.item.cost}}</td>
+                                    <td><a class="btn btn-secondary btn-sm" href="#" role="button">Edit</a></td>
+                                    <td><a class="btn btn-warning btn-sm" href="#" role="button">Delete</a></td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endfor %}
             
-            <table class="table">
-                <thead>
-                    <tr>
-                    
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>&nbsp&nbsp&nbsp&nbsp</th>
-                        <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in items %}
-                        {% if item.item.restaurant == restaurant %}
-                            <tr>
-                                <td>{{item.item}}<td>
-                                <td>{{item.quantity}}<td>
-                                <td>{{item.item.cost}}<td>
-                                <td>Edit<td>
-                                <td>Delete<td>
-                            </tr>
-                        {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
-            {% endfor %}
             <a class="btn btn-primary " href="{% url 'restaurant' cart_number=cart.id %}" role="button">Add Item +</a>
         </div>
         <div class="col-lg-6 border" style="padding-top:5px">
