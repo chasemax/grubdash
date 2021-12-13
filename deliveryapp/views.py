@@ -19,7 +19,7 @@ def cartPageView(request, cart_number) :
     cart = Cart.objects.get(id=cart_number)
     restaurants = {}
     for item in cart.items.all() :
-        print(item.restaurant)
+        
         if item.restaurant not in restaurants :
             restaurants[item.restaurant] = {item}
         else :
@@ -37,8 +37,13 @@ def cartPageView(request, cart_number) :
 
     return render(request, 'deliveryapp/cart.html', context)
 
-def editItemPageView(request) :
-    return render(request, 'deliveryapp/cart.html')
+def editItemPageView(request, cart_item_id) :
+    cartItem = CartItem.objects.get(id=cart_item_id)
+    context = {
+        'cartItem' : cartItem
+    }
+    return render(request, 'deliveryapp/edit.html', context)
+    
 
 def restaurantPageView(request, cart_number) :
 
@@ -115,8 +120,13 @@ def newCartPageView(request) :
 def deleteItemPageView(request) :
     return redirect('cart')
 
-def saveItemPageView(request) :
-    return redirect('cart')
+def saveItemPageView(request, cart_item_id) :
+    cartItem = CartItem.objects.get(id=cart_item_id)
+    cartItem.quantity = request.POST['inputQuantity']
+    cartItem.save()
+    return redirect('cart', cartItem.cart.id)
+    
+    
 
 def addItemPageView(request) :
 

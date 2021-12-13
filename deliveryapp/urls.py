@@ -10,10 +10,10 @@ urlpatterns = [
     path("newcart/", newCartPageView, name="newcart"),
     path("deleteitem/", deleteItemPageView, name="delete-item"),
     path("edititem/<int:cart_item_id>/", editItemPageView, name="edit-item"),
-    path("saveitem/", saveItemPageView, name="save-item"),
-    path("restaurant/<int:cart_number>/", restaurantPageView, name="restaurant"),   # Chase will do
-    path("item/<int:cart_number>/<int:restaurant_id>/", itemPageView, name="item"), # Chase will do
-    path("additem/", addItemPageView, name="add-item"),                             # Chase will do
+    path("saveitem/<int:cart_item_id>", saveItemPageView, name="save-item"),
+    path("restaurant/<int:cart_number>/", restaurantPageView, name="restaurant"),   
+    path("item/<int:cart_number>/<int:restaurant_id>/", itemPageView, name="item"), 
+    path("additem/", addItemPageView, name="add-item"),                             
     path("ordersummary/<int:cart_number>/", orderSummaryPageView, name="ordersummary"),
     path("findcart/", findCart, name="find-cart")
 ]
