@@ -2,8 +2,51 @@
 {% load static %}
 {% block bodyblock %}
 
-<h1>About GRUBDASH</h1>
+<h1>About GrubDash</h1>
+<p>IMPORTANT NOTE: GrubDash is just a project for our IS 403 semester project. This is not a legitimate food delivery service. We 
+    do not fulfill orders. This is just a mock Grubhub and Doordash knockoff. We are not affiliated with those companies in any way. 
+    Now for the fake "About" information: GrubDash is your one-stop shop for all things food! Take a look through our numerous restaurants 
+    and order anything that will fulfill your cravings! Started in 2021, we made it our goal to give quick delivery to every hungry 
+    person on the block. Thanks for choosing GrubDash!
+</p>
 
-<p> {% lorem 1 b random %} </p>
+<h1>GrubDash, a Subsidiary of MOMS</h1>
+<p>In 2021, Chase Maxfield, Scott Olson, and Ezra Marin started our parent company MOM (Maxfield, Olson, Marin). Later in 2021, the three 
+    hired on an intern to be with the company for 12 weeks. With the addition of Jackson Schow, MOM became MOMS (Maxfield, Olson, Marin, 
+    and Schow). Meet all four below!
+</p>
+<div class="row">
+    <div class="col-lg-3" style="text-align:center">
+        <img src="{% static 'img/chase.png' %}" width="200px" height="200px" style="border:5px solid #ce261a;border-radius: 200px;">
+        <h5 class="text-center">Chase Maxfield</h5>
+        <h6>Chief Executive Officer</h6>
+        <p>Chase, in addition to being the CEO of MOMS, is an Information Systems undergraduate student at Brigham Young University</p>
+        <br>
+        <p style="font-size:100px"><b>M</b></p>
+    </div>
+    <div class="col-lg-3" style="text-align:center">
+        <img src="{% static 'img/scott.png' %}" width="200px" height="200px" style="border:5px solid #ce261a;border-radius: 200px;">
+        <h5 class="text-center">Scott Olson</h5>
+        <h6>Chief Technical Officer</h6>
+        <p>Scott, in addition to being the CTO of MOMS, is an Information Systems undergraduate student at Brigham Young University</p>
+        <br>
+        <p style="font-size:100px"><b>O</b></p>
+    </div>
+    <div class="col-lg-3" style="text-align:center">
+        <img src="{% static 'img/ezra.png' %}" width="200px" height="200px" style="border:5px solid #ce261a;border-radius: 200px;">
+        <h5 class="text-center">Ezra Marin</h5>
+        <h6>Chief Financial Officer</h6>
+        <p>Ezra, in addition to being the CFO of MOMS, is an Information Systems undergraduate student at Brigham Young University</p>
+        <br>
+        <p style="font-size:100px"><b>M</b></p>
+    </div>
+    <div class="col-lg-3" style="text-align:center">
+        <img src="{% static 'img/jackson.png' %}" width="200px" height="200px" style="border:5px solid #ce261a;border-radius: 200px;">
+        <h5 class="text-center">Jackson Schow</h5>
+        <h6>12-Week Intern</h6>
+        <p>Jackson, in addition to being a 12-Week Intern at MOMS, is an Information Systems undergraduate student at Brigham Young University</p>
+        <p style="font-size:100px"><b>S</b></p>
+    </div>
+</div>
 
 {% endblock %}
