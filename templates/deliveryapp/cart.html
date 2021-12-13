@@ -22,11 +22,11 @@
                 </thead>
                 <tbody>
                     {% for item in items %}
-                        {% if item.restaurant == restaurant %}
+                        {% if item.item.restaurant == restaurant %}
                             <tr>
-                                <td>{{item}}<td>
-                                <td><td>
-                                <td><td>
+                                <td>{{item.item}}<td>
+                                <td>{{item.quantity}}<td>
+                                <td>{{item.item.cost}}<td>
                                 <td>Edit<td>
                                 <td>Delete<td>
                             </tr>
