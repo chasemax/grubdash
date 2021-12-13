@@ -30,10 +30,7 @@ def cartPageView(request, cart_number) :
     context = {
         "cart" : cart,
         "restaurants" : restaurants,
-<<<<<<< HEAD
-=======
         "items" : items
->>>>>>> master
     }
 
     return render(request, 'deliveryapp/cart.html', context)
