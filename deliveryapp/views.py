@@ -26,11 +26,13 @@ def cartPageView(request, cart_number) :
             restaurants[item.restaurant].add(item)
     
     items = cart.items.all()
-
+    cartItems = cart.cartitem_set.all()
+    
     context = {
         "cart" : cart,
         "restaurants" : restaurants,
-        "items" : items
+        "items" : items,
+        "cartitem" : cartItems
     }
 
     return render(request, 'deliveryapp/cart.html', context)
