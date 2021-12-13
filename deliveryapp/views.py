@@ -40,7 +40,6 @@ def restaurantPageView(request, cart_number) :
 def itemPageView(request) :
     return render(request, 'deliveryapp/cart.html')
 
-
 def orderSummaryPageView(request, cart_number) :
     if request.method == 'POST' :
         cart = Cart.objects.get(id=cart_number)
