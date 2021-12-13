@@ -20,26 +20,21 @@
                                     <td class="content2-block">
                                         <table class="invoice">
                                             <tbody><tr>
-                                                <td>Name<br>cart #<br>Date</td>
+                                                <td>{{ name }}<br>Cart Number: {{ cart_number }}<br>{{ date }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <table class="invoice-items" cellpadding="0" cellspacing="0">
-                                                        <tbody><tr>
-                                                            <td>Item 1</td>
-                                                            <td class="alignright">$ 20.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Item 2</td>
-                                                            <td class="alignright">$ 10.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Item 3</td>
-                                                            <td class="alignright">$ 6.00</td>
-                                                        </tr>
+                                                        <tbody>
+                                                        {% for item in all_items %}
+                                                            <tr>
+                                                                <td>{{ item.name }} x{{ item.quantity }}</td>
+                                                                <td class="alignright">${{item.total_price}}</td>
+                                                            </tr>
+                                                        {% endfor %}
                                                         <tr class="total">
                                                             <td class="alignright" width="80%">Total</td>
-                                                            <td class="alignright">$ 36.00</td>
+                                                            <td class="alignright">${{ total }}</td>
                                                         </tr>
                                                     </tbody></table>
                                                 </td>
