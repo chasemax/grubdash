@@ -26,12 +26,16 @@ def cartPageView(request, cart_number) :
             restaurants[item.restaurant].add(item)
     
     cartItems = cart.cartitem_set.all()
+    total = 0
+    for item in cartItems :
+        total = total + (item.quantity + item.item.cost)
     
     context = {
         "cart" : cart,
         "restaurants" : restaurants,
 
         "items" : cartItems,
+        "total" : total
         
     }
 

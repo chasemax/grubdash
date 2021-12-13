@@ -27,7 +27,7 @@
                                 <tr>
                                     <th scope="row">{{item.item}}</th>
                                     <td>{{item.quantity}}</td>
-                                    <td>{{item.item.cost}}</td>
+                                    <td>${{item.item.cost}}</td>
                                     <td><a class="btn btn-secondary btn-sm" href="{% url 'edit-item' cart_item_id=item.id %}" role="button">Edit</a></td>
                                     <td><a class="btn btn-warning btn-sm" href="{% url 'delete-item' cart_item_id=item.id %}" role="button">Delete</a></td>
                                 </tr>
@@ -36,7 +36,7 @@
                     </tbody>
                 </table>
                 {% endfor %}
-            
+                <p style="text-align: right;"><b>Total:</b> ${{total}}&nbsp;</p>
             <a class="btn btn-primary " href="{% url 'restaurant' cart_number=cart.id %}" role="button">Add Item +</a>
         </div>
         <div class="col-lg-6 border" style="padding-top:5px">
