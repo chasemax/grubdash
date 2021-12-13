@@ -28,7 +28,7 @@ def cartPageView(request, cart_number) :
     cartItems = cart.cartitem_set.all()
     total = 0
     for item in cartItems :
-        total = total + (item.quantity + item.item.cost)
+        total = total + (item.quantity * item.item.cost)
     
     context = {
         "cart" : cart,

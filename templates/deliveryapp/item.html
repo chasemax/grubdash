@@ -2,26 +2,49 @@
 {% load static %}
 {% block bodyblock %}
 
-<h1>Item page</h1>
-
-{% for item in all_items %}
-<div class="item-hover my-3 p-3" id="{{item.id}}" onclick="select_item({{item.id}})">
-    <h3> {{item.name}} </h3>
-    <p> {{item.description}} </p>
-    <p> {{item.cost}} </p>
-
-    <form method="POST" action="{% url 'add-item' %}">
-        {% csrf_token %} 
-        <input type="hidden" name="cart_number" value="{{ cart_number }}">
-        <input type="hidden" name="item_id" value="{{ item.id }}">
-        <input type="number" class="form-control" name="quantity" disabled>
-        <button type="submit" class="btn btn-primary" disabled>Add Item</button>
-    </form>
+<div class="container w-100">
+    <div class="row w-100">
+        <div class="col w-100">
+            <div class="row">
+                <div class="col text-center">
+                    <h1> Menu </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% for item in all_items %}
+                        <div class="row item-hover py-3" id="{{item.id}}" onclick="select_item({{item.id}})">
+                            <div class="col">
+                                <img src="{% static 'img/fries.jpg' %}">
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <h2> {{item.name}} </h2>
+                                        <p> {{item.description}} </p>
+                                        <p> ${{item.cost}} </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <form method="POST" action="{% url 'add-item' %}">
+                                            {% csrf_token %} 
+                                            <input type="hidden" name="cart_number" value="{{ cart_number }}">
+                                            <input type="hidden" name="item_id" value="{{ item.id }}">
+                                            <label for="quantity">QTY:</label>
+                                            <input id="quantity" type="number" class="form-control d-inline w-25" name="quantity" disabled>
+                                            <button type="submit" class="btn btn-primary d-inline w-50" disabled>Add Item</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-{% endfor %}
-
-<h2>Selected Items: </h2>
 
 <script>
     function select_item(i) {

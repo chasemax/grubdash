@@ -2,17 +2,30 @@
 {% load static %}
 {% block bodyblock %}
 
-<h1> Restaurants </h1>
-<p> Select a restaurant: </p>
-
-{% for restaurant in all_restaurants %}
-    <h3> {{ restaurant.name }} </h3>
-    <p> {{ restaurant.addressline1 }} </p>
-    <p> {{ restaurant.addressline1 }} </p>
-    <p> {{ restaurant.city }}, {{ restaurant.state }} {{ restaurant.zip }} </p>
-    <p> {{ restaurant.phone }} </p>
-    <br>
-    <a href="{% url 'item' cart_number=cart_number restaurant_id=restaurant.id %}">Click for item page</a>
-{% endfor %}
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col text-center">
+                    <h1> Restaurants </h1>
+                </div>
+            </div>
+            {% for restaurant in all_restaurants %}
+                <div class="row py-3">
+                    <div class="col">
+                        <img src="{% static 'img/diner.jpg' %}">
+                    </div>
+                    <div class="col">
+                        <h2> {{ restaurant.name }} </h2>
+                        <p> {{ restaurant.addressline1 }} {{ restaurant.addressline2 }} | {{ restaurant.city }}, {{ restaurant.state }} {{ restaurant.zip }} </p>
+                        <p> Phone: {{ restaurant.phone }} </p>
+                        <a href="{% url 'item' cart_number=cart_number restaurant_id=restaurant.id %}">
+                            <button class="btn btn-primary">Select</button>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
