@@ -27,6 +27,7 @@
                 </tbody>
             </table>
             {% endfor %}
+            <a class="btn btn-primary " href="{% url 'restaurant' cart_number=cart.id %}" role="button">Add Item +</a>
         </div>
         <div class="col-lg-6 border" style="padding-top:5px">
             <form method="POST" action="{% url 'order-summary' %}">

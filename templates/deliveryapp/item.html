@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block bodyblock %}
+
+<h1>Item page</h1>
+
+{% for item in all_items %}
+
+<h3> {{item.name}} </h3>
+<p> {{item.description}} </p>
+<p> {{item.cost}} </p>
+
+{% endfor %}
+{% endblock %}

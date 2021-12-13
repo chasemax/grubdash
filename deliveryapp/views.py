@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
-from deliveryapp.models import Cart
+from deliveryapp.models import Cart, Item, Restaurant
 
 # Create your views here.
 def indexPageView(request) :
@@ -35,10 +35,29 @@ def editItemPageView(request) :
     return render(request, 'deliveryapp/cart.html')
 
 def restaurantPageView(request, cart_number) :
-    return render(request, 'deliveryapp/cart.html')
 
-def itemPageView(request) :
-    return render(request, 'deliveryapp/cart.html')
+    all_restaurants = Restaurant.objects.all()
+
+    context = {
+        'all_restaurants': all_restaurants,
+        'cart_number': cart_number
+    }
+
+    return render(request, 'deliveryapp/restaurant.html', context)
+
+def itemPageView(request, cart_number, restaurant_id) :
+
+    current_restaurant = Restaurant.objects.get(id=restaurant_id)
+
+    all_items = Item.objects.filter(isactive=True, restaurant=current_restaurant)
+
+    context = {
+        'all_items': all_items,
+        'current_restaurant': current_restaurant,
+        'cart_number': cart_number
+    }
+
+    return render(request, 'deliveryapp/item.html', context)
 
 def orderSummaryPageView(request) :
     return render(request, 'deliveryapp/ordersummary.html')
