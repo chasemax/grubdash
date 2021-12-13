@@ -31,7 +31,7 @@ def cartPageView(request, cart_number) :
     context = {
         "cart" : cart,
         "restaurants" : restaurants,
-        "items" : items,
+        "items" : cartItems,
         "cartitem" : cartItems
     }
 
