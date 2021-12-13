@@ -189,14 +189,28 @@ a {
 }
 
 
-    .container {
-        width: 100% !important;
-    }
+.container {
+    width: 100% !important;
+}
 
-    .content, .content-wrap {
-        padding: 10px !important;
-    }
+.content, .content-wrap {
+    padding: 10px !important;
+}
 
-    .invoice {
-        width: 100% !important;
-    }
+.invoice {
+    width: 100% !important;
+}
+
+/*------------------------------------
+    SPECIAL
+-------------------------------------*/
+
+.item-hover:hover {
+    border-style: solid;
+    cursor: pointer;
+}
+
+.disabled-item {
+    opacity: 0.4;
+    pointer-events: none;
+}
