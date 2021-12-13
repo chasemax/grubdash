@@ -41,6 +41,9 @@ def itemPageView(request) :
     return render(request, 'deliveryapp/cart.html')
 
 def orderSummaryPageView(request) :
+    
+    
+   
     return render(request, 'deliveryapp/ordersummary.html')
 
 
