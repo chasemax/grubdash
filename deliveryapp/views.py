@@ -2,7 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from deliveryapp.models import Cart
 
-# Create your views here.
+# Create your views here
 def indexPageView(request) :
     return render(request, 'deliveryapp/index.html')
 
