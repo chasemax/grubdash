@@ -45,14 +45,10 @@ body {
     line-height: 1.6;
 }
 
-/* Let's make sure all tables have defaults */
 table td {
     vertical-align: top;
 }
 
-/* -------------------------------------
-    BODY & CONTAINER
-------------------------------------- */
 body {
     background-color: #f6f6f6;
 }
