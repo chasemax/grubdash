@@ -66,3 +66,16 @@ body {
 
 
 
+/*------------------------------------
+    SPECIAL
+-------------------------------------*/
+
+.item-hover:hover {
+    border-style: solid;
+    cursor: pointer;
+}
+
+.disabled-item {
+    opacity: 0.4;
+    pointer-events: none;
+}

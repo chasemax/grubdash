@@ -5,14 +5,41 @@
 <h1>Item page</h1>
 
 {% for item in all_items %}
+<div class="item-hover my-3 p-3" id="{{item.id}}" onclick="select_item({{item.id}})">
+    <h3> {{item.name}} </h3>
+    <p> {{item.description}} </p>
+    <p> {{item.cost}} </p>
 
-<h3> {{item.name}} </h3>
-<p> {{item.description}} </p>
-<p> {{item.cost}} </p>
-<button onclick="<script></script>">Add Item</button>
+    <form method="POST" action="{% url 'add-item' %}">
+        {% csrf_token %} 
+        <input type="hidden" name="cart_number" value="{{ cart_number }}">
+        <input type="hidden" name="item_id" value="{{ item.id }}">
+        <input type="number" class="form-control" name="quantity" disabled>
+        <button type="submit" class="btn btn-primary" disabled>Add Item</button>
+    </form>
+</div>
 
 {% endfor %}
 
 <h2>Selected Items: </h2>
+
+<script>
+    function select_item(i) {
+        var forms = document.querySelectorAll('.item-hover');
+        for (form of forms) {
+            form.classList.add("disabled-item")
+        }
+        var selected_item = document.getElementById(i);
+        selected_item.classList.remove("disabled-item");
+        selected_item.classList.remove(".item-hover");
+        form = selected_item.querySelectorAll("form")[0];
+        console.log(form);
+        all_inputs = form.children;
+        console.log(all_inputs);
+        for (input of form.children) {
+            input.removeAttribute("disabled");
+        }
+    }
+</script>
 
 {% endblock %}
