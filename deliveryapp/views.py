@@ -117,8 +117,10 @@ def newCartPageView(request) :
 
     return redirect('restaurant', newCartNum)
 
-def deleteItemPageView(request) :
-    return redirect('cart')
+def deleteItemPageView(request, cart_item_id) :
+    cartID = CartItem.objects.get(id=cart_item_id).cart.id
+    CartItem.objects.get(id=cart_item_id).delete()
+    return redirect('cart', cartID)
 
 def saveItemPageView(request, cart_item_id) :
     cartItem = CartItem.objects.get(id=cart_item_id)
