@@ -100,10 +100,7 @@ def orderSummaryPageView(request, cart_number) :
         cart.cardexpiration = expiration
         cart.cardcvv = request.POST['cardcvv']
 
-        try:
-            cart.save()
-        except:
-            return redirect('cart', cart_number=cart_number)
+        cart.save()
 
         name = cart.customerfirstname + " " + cart.customerlastname
 
