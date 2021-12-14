@@ -96,7 +96,10 @@ def orderSummaryPageView(request, cart_number) :
         cart.deliverystate = request.POST['deliverystate'].upper()
         cart.deliveryzip = request.POST['deliveryzip']
         cart.cardnumber = request.POST['cardnumber']
-        cart.cardexpiration = expiration
+        try:
+            cart.cardexpiration = expiration
+        except:
+            return redirect("cart", cart_number=cart_number)
         cart.cardcvv = request.POST['cardcvv']
 
         cart.save()
