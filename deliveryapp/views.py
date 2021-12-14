@@ -100,9 +100,9 @@ def orderSummaryPageView(request, cart_number) :
         cart.cardexpiration = expiration
         cart.cardcvv = request.POST['cardcvv']
 
-        if (request.POST['month'] >= 1 and request.POST['month']<=12) and (request.POST['year'] >= 21):
+        try:
             cart.save()
-        else:
+        except:
             return redirect('cart', cart_number=cart_number)
 
         name = cart.customerfirstname + " " + cart.customerlastname
