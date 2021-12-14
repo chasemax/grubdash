@@ -57,7 +57,7 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="customerphone">Phone:</label><br>
-                        <input type="text" class="form-control" id="customerphone" name="customerphone" maxlength="10" value="{{ cart.customerphone }}" placeholder="e.g., 1238904567" required>
+                        <input type="text" class="form-control" id="customerphone" name="customerphone" minlength="10" maxlength="10" value="{{ cart.customerphone }}" placeholder="e.g., 1238904567" required>
                     </div>
                     <div class="col">
                     </div>
@@ -87,7 +87,7 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="deliveryzip">Zip:</label><br>
-                        <input type="text" class="form-control" id="deliveryzip" name="deliveryzip" maxlength="10" value="{{ cart.deliveryzip }}" placeholder="e.g., 90001" required>
+                        <input type="text" class="form-control" id="deliveryzip" name="deliveryzip"  minlength="5" maxlength="10" value="{{ cart.deliveryzip }}" placeholder="e.g., 90001" required>
                     </div>
                     <div class="col">
                     </div>
@@ -97,7 +97,7 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="cardnumber">Card Number:</label><br>
-                        <input type="text" class="form-control" id="cardnumber" name="cardnumber" maxlength="16" placeholder="e.g., 1234123412341234" required>
+                        <input type="text" class="form-control" id="cardnumber" name="cardnumber" minlength="16" maxlength="16" placeholder="e.g., 1234123412341234" required>
                     </div>
                     <div class="col">
                     </div>
@@ -107,11 +107,11 @@
                         <div class="row">
                             <div class="col">
                                 <label for="month">Expiration:</label><br>
-                                <input type="text" class="form-control" id="month" maxlength="2" placeholder="MM" name="month" required>
+                                <input type="text" class="form-control" id="month" min="1" max="12" maxlength="2" placeholder="MM" name="month" required>
                             </div>
                             <div class="col">
                                 <label for="year" style="color:white">Expiration:</label><br>
-                                <input type="text" class="form-control" id="year" maxlength="2" placeholder="YY" name="year" required>
+                                <input type="text" class="form-control" id="year" min="21" max="99" maxlength="2" placeholder="YY" name="year" required>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="cardcvv">CVV:</label><br>
-                        <input type="text" class="form-control" id="cardcvv" name="cardcvv" maxlength="3" placeholder="e.g., 000" required>
+                        <input type="text" class="form-control" id="cardcvv" name="cardcvv" minlength="3" maxlength="3" placeholder="e.g., 000" required>
                     </div>
                     <div class="col">
                     </div>

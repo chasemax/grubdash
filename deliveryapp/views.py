@@ -93,7 +93,7 @@ def orderSummaryPageView(request, cart_number) :
         cart.deliveryaddressline1 = request.POST['deliveryaddressline1']
         cart.deliveryaddressline2 = request.POST['deliveryaddressline2']
         cart.deliverycity = request.POST['deliverycity']
-        cart.deliverystate = request.POST['deliverystate']
+        cart.deliverystate = request.POST['deliverystate'].upper()
         cart.deliveryzip = request.POST['deliveryzip']
         cart.cardnumber = request.POST['cardnumber']
         cart.cardexpiration = expiration
