@@ -83,8 +83,12 @@ def orderSummaryPageView(request, cart_number) :
         for item in items:
             all_items.append({'name' : item.item.name, 'quantity' : item.quantity, 'unit_price' : item.item.cost, 'total_price' : item.item.cost * item.quantity})
             total += item.quantity * item.item.cost
-        month = request.POST['month']
-        year = request.POST['year']
+        
+        if (request.POST['month'] >= 1 and request.POST['month']<=12) and (request.POST['year'] >= 21):
+            month = request.POST['month']
+            year = request.POST['year']
+        else:
+            return redirect('cart', cart_number=cart_number)
         expiration = ('20' + str(year) + '-' + str(month) + '-01')
 
         cart.customerfirstname = request.POST['customerfirstname']
@@ -96,10 +100,7 @@ def orderSummaryPageView(request, cart_number) :
         cart.deliverystate = request.POST['deliverystate'].upper()
         cart.deliveryzip = request.POST['deliveryzip']
         cart.cardnumber = request.POST['cardnumber']
-        try:
-            cart.cardexpiration = expiration
-        except:
-            return redirect("cart", cart_number=cart_number)
+        cart.cardexpiration = expiration
         cart.cardcvv = request.POST['cardcvv']
 
         cart.save()
